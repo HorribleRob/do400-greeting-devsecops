@@ -15,8 +15,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 '''
-                 oc start-build greeting-devsecops \
-                 --follow --wait -n ${APP_NAMESPACE}
+                 oc start-build greeting-devsecops --follow --wait -n ${APP_NAMESPACE}
                 '''
             }
         }
@@ -24,8 +23,7 @@ pipeline {
         stage ('Push to Quay') {
             steps {
                 sh '''
-                    oc start-build greeting-devsecops-quay \
-                    --follow --wait -n ${APP_NAMESPACE}
+                    oc start-build greeting-devsecops-quay --follow --wait -n ${APP_NAMESPACE}
                     '''
             }
         }
