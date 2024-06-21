@@ -21,6 +21,15 @@ pipeline {
             }
         }
 
+        stage ('Push to Quay') {
+            steps {
+                sh '''
+                    oc start-build greeting-devsecops-quay \
+                    --follow --wait -n ${APP_NAMESPACE}
+                    '''
+            }
+        }
+
         // Add more stages here
     }
 }
