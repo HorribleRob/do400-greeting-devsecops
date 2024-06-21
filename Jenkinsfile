@@ -17,6 +17,7 @@ pipeline {
                 '''
                  oc start-build greeting-devsecops \
                  --follow --wait -n ${APP_NAMESPACE}
+                '''
             }
         }
 
